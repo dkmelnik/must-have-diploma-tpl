@@ -1,0 +1,20 @@
+version: "3.4"
+
+services:
+  migrate:
+    container_name: gophermart_migrate
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-migrate
+    volumes:
+      - .:/app
+
+  db:
+    image: postgres:16.1-alpine3.19
+    container_name: gophermart_db
+    environment:
+      POSTGRES_DB: "local"
+      POSTGRES_USER: "web"
+      POSTGRES_PASSWORD: "web"
+    ports:
+      - "5432:5432"
