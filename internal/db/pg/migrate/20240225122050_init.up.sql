@@ -1,0 +1,2 @@
+SET TIME ZONE 'Europe/Moscow';
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
